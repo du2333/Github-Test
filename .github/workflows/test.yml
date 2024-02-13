@@ -1,0 +1,16 @@
+name: test-actions
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - src/*
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: hello
+        run: echo Hello, world!
