@@ -1,27 +1,43 @@
 name: test-actions
 
+# Actions的触发条件
 on:
+  # 比如每次push的时候会触发
   push:
+    # 指定的分支
     branches:
       - main
+    # 当以下路径的文件变动时
     paths:
       - src/*
 
+  # 比如可以手动触发
   workflow_dispatch:
+# 触发后要执行的任务
 jobs:
+  # 任务1
   hello:
+    # 指定运行的虚拟机
     runs-on: ubuntu-latest
+    # 指定要进行的步骤
     steps:
+      # uses代表别人仓库已经写好的指令，比如一下指令来自Github官方仓库，代表把当前的Repo克隆到虚拟机里
       - uses: actions/checkout@v3
       
+      # 用name来指定步骤的名称
       - name: hello
+        # run来写命令，注意run和uses不可以同时使用
         run: echo Hello, world!
 
       - name: use python
         uses: actions/setup-python@v5
+        # 用with来指定参数，这个可以放什么参数要参考原仓库的用法
         with:
           python-version: '3.10' 
+
       - name: run my script
+        # 写一个竖杠后，就可以写多条命令
         run: |
           cd src
           python3 hello.py
+  # 任务2...可以继续写下去
