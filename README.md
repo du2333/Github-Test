@@ -2,3 +2,4 @@
 main2
 # feature2
 feature2 does something
+feature2 does other things
