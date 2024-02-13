@@ -15,8 +15,9 @@ jobs:
       - name: hello
         run: echo Hello, world!
 
-      - name: use python and run my script
+      - name: use python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10' 
-        run: python hello.py
+      - name: run my script
+        run: python3 hello.py
