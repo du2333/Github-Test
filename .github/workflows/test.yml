@@ -40,4 +40,9 @@ jobs:
         run: |
           cd src
           python3 hello.py
+
+      - name: create env
+        run: |
+          echo "${{ vars.TEST_VAR }} ${{ secrets.TEST_SECRET }}" > .env
+          cat .env
   # 任务2...可以继续写下去
