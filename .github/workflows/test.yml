@@ -43,6 +43,6 @@ jobs:
 
       - name: create env
         run: |
-          echo "${{ vars.TEST_VAR }} ${{ secrets.TEST_SECRET }}" > .env
+          echo "TEST_VAR=${{ vars.TEST_VAR }}\nTEST_SECRET=${{ secrets.TEST_SECRET }}" > .env
           cat .env
   # 任务2...可以继续写下去
